@@ -1,0 +1,415 @@
+
+
+.home {
+  overflow-x: hidden;
+}
+
+/* Parallax Hero */
+.hero {
+  height: 100vh;
+  min-height: 700px; /* Ensure content fits on short screens */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(11, 19, 43, 0.3), rgba(11, 19, 43, 0.7));
+  z-index: -1;
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  padding-bottom: 100px;
+  width: 100%;
+}
+
+.hero-subtitle {
+  display: block;
+  font-family: var(--font-family-base);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+  color: var(--color-secondary-light);
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  color: white;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Hero Stats - Glassmorphism Strip */
+.hero-stats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: none;
+  width: 100%;
+  max-width: 100%; /* Full width strip */
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 0;
+}
+
+.stat-item {
+  text-align: center;
+  color: white;
+}
+
+.stat-item h3 {
+  font-size: 2.2rem;
+  color: var(--color-secondary);
+  margin-bottom: 5px;
+  font-family: var(--font-family-heading);
+  line-height: 1;
+}
+
+.stat-item p {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 140px; /* Above the stats strip */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.scroll-indicator .line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, white, transparent);
+}
+
+/* Why Choose Section */
+.features-grid-large {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.feature-card {
+  background: white;
+  padding: 50px 30px;
+  text-align: center;
+  border-radius: 4px; /* Sharper corners for luxury */
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+  height: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.feature-icon {
+  color: var(--color-secondary);
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.feature-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--color-primary);
+}
+
+.feature-card p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.section-desc {
+  max-width: 600px;
+  margin: 15px auto 0;
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Amenities Section */
+.amenities-section {
+  background-color: white;
+}
+
+.amenities-grid-home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for better balance */
+  gap: 40px 60px;
+  max-width: 1000px;
+  margin: 70px auto 0;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 10px;
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(212, 175, 55, 0.1); /* Light gold transparent */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.amenity-item:hover .icon-circle {
+  transform: scale(1.1);
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.amenity-item h4 {
+  margin-bottom: 5px;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+.amenity-item p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Room Cards - Frame & Alignment */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.room-card {
+  background: white;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.room-image {
+  height: 280px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills frame perfectly */
+  transition: transform 0.8s ease;
+}
+
+.room-card:hover .room-image img {
+  transform: scale(1.1);
+}
+
+.room-content {
+  padding: 35px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.room-meta-large {
+  font-weight: 500;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.room-amenities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+
+.room-amenities-list span {
+  background: #f5f5f5;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.room-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 0; /* Square for modern look */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* CTA Section */
+.cta-section {
+  position: relative;
+  padding: 160px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -2;
+}
+
+.overlay-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 19, 43, 0.75);
+  z-index: -1;
+}
+
+.cta-content h2 {
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-large {
+  padding: 18px 45px;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .hero h1 { font-size: 3rem; }
+  
+  .hero-stats { 
+    position: relative;
+    flex-wrap: wrap;
+    gap: 30px; 
+    padding: 40px 20px;
+    background: var(--color-primary); /* Solid bg on mobile */
+  }
+  
+  .stat-item { flex: 1 1 40%; }
+  
+  .amenities-grid-home {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .cta-content h2 { font-size: 2.2rem; }
+  .cta-buttons { flex-direction: column; align-items: stretch; width: 100%; max-width: 300px; margin: 0 auto; }
+}
