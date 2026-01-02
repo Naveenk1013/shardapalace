@@ -393,17 +393,55 @@
 }
 
 @media (max-width: 900px) {
-  .hero h1 { font-size: 3rem; }
-  
-  .hero-stats { 
-    position: relative;
-    flex-wrap: wrap;
-    gap: 30px; 
-    padding: 40px 20px;
-    background: var(--color-primary); /* Solid bg on mobile */
+  .hero h1 { 
+    font-size: 2.8rem; 
+    line-height: 1.2;
+    margin-bottom: 20px;
   }
   
-  .stat-item { flex: 1 1 40%; }
+  .hero p {
+    font-size: 1rem;
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+
+  .hero-content {
+    padding-bottom: 120px; /* More space for stats strip */
+  }
+  
+  .hero-stats { 
+    /* Restore absolute positioning */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    /* Keep flexible but maybe wrap slightly if needed, or scale */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 20px; 
+    padding: 20px 10px;
+    
+    /* Restore glassmorphism */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .stat-item {
+    flex: 0 0 auto; /* Don't stretch */
+    min-width: 80px;
+  }
+
+  .stat-item h3 {
+    font-size: 1.5rem;
+  }
+
+  .stat-item p {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
   
   .amenities-grid-home {
     grid-template-columns: 1fr;
@@ -411,5 +449,27 @@
   }
   
   .cta-content h2 { font-size: 2.2rem; }
-  .cta-buttons { flex-direction: column; align-items: stretch; width: 100%; max-width: 300px; margin: 0 auto; }
+  .cta-buttons { 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+  }
+  
+  .btn-large {
+    width: 100%;
+    max-width: 300px;
+  }
 }
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.2rem; }
+  
+  /* On very small screens, maybe stack stats in 2 rows of 2 */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
