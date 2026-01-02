@@ -1,0 +1,72 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  role      String   @default("STAFF") // "ADMIN", "STAFF"
+  createdAt DateTime @default(now())
+}
+
+model RoomType {
+  id           Int    @id @default(autoincrement())
+  name         String @unique // e.g. "Deluxe", "Standard"
+  basePrice    Float
+  maxOccupancy Int    @default(2)
+  rooms        Room[]
+}
+
+model Room {
+  id         Int       @id @default(autoincrement())
+  number     String    @unique
+  floor      Int       @default(1)
+  status     String    @default("VACANT") // "VACANT", "OCCUPIED", "DIRTY", "MAINTENANCE"
+  typeId     Int
+  roomType   RoomType  @relation(fields: [typeId], references: [id])
+  bookings   Booking[]
+}
+
+model Guest {
+  id        Int       @id @default(autoincrement())
+  name      String
+  mobile    String    @unique
+  email     String?
+  address   String?
+  idType    String?   // AADHAAR, PASSPORT
+  idNumber  String?
+  bookings  Booking[]
+  createdAt DateTime  @default(now())
+}
+
+model Booking {
+  id           Int      @id @default(autoincrement())
+  checkIn      DateTime
+  checkOut     DateTime
+  status       String   @default("CONFIRMED") // "CONFIRMED", "CHECKED_IN", "CHECKED_OUT", "CANCELLED"
+  totalAmount  Float    @default(0)
+  paidAmount   Float    @default(0)
+  guestId      Int
+  roomId       Int?     // Optional for advance booking before assignment
+  guest        Guest    @relation(fields: [guestId], references: [id])
+  room         Room?    @relation(fields: [roomId], references: [id])
+  items        BookingItem[]
+  createdAt    DateTime @default(now())
+}
+
+model BookingItem {
+  id          Int      @id @default(autoincrement())
+  bookingId   Int
+  description String
+  amount      Float
+  type        String   // "ROOM_CHARGE", "SERVICE", "TAX", "PAYMENT"
+  date        DateTime @default(now())
+  booking     Booking  @relation(fields: [bookingId], references: [id])
+}

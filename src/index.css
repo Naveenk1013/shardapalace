@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-  --color-primary: #0B132B; /* Midnight Blue */
+  --color-primary: #4b5573; /* Midnight Blue */
   --color-secondary: #D4AF37; /* Champagne Gold */
   --color-secondary-light: #F4E5B0;
   --color-accent: #8A6D3B; /* Darker Gold for text */
